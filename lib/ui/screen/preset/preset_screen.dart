@@ -45,9 +45,15 @@ class PresetScreen extends HookConsumerWidget {
                       extra: FullScreenScreenProps(courts: callCourts),
                     ),
               );
-              await TtsService.shared.speak('朝礼を始めます！');
-              for (final entry in callCourts.asMap().entries) {
-                await TtsService.shared.callCourt(entry.key + 1, entry.value);
+              try {
+                await TtsService.shared.speak('朝礼を始めます！');
+                for (final entry in callCourts
+                    .asMap()
+                    .entries) {
+                  await TtsService.shared.callCourt(entry.key + 1, entry.value);
+                }
+              } catch (e) {
+                print(e);
               }
               ref.read(callCourtControllerProvider.notifier).clearCourt();
             },

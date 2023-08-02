@@ -19,6 +19,7 @@ class App extends HookConsumerWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+
     );
   }
 }
