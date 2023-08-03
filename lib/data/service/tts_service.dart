@@ -14,19 +14,19 @@ class TtsService {
 
   Future<void> init() async {
     _tts = FlutterTts();
-    if (Platform.isIOS) {
-      await _tts.setSharedInstance(true);
-    }
-    await _tts.setIosAudioCategory(
-        IosTextToSpeechAudioCategory.ambient,
-        [
-          IosTextToSpeechAudioCategoryOptions.allowBluetooth,
-          IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
-          IosTextToSpeechAudioCategoryOptions.mixWithOthers,
-        ],
-        IosTextToSpeechAudioMode.voicePrompt);
+    // if (Platform.isIOS) {
+    //   await _tts.setSharedInstance(true);
+    // }
+    // await _tts.setIosAudioCategory(
+    //     IosTextToSpeechAudioCategory.ambient,
+    //     [
+    //       IosTextToSpeechAudioCategoryOptions.allowBluetooth,
+    //       IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
+    //       IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+    //     ],
+    //     IosTextToSpeechAudioMode.voicePrompt);
     await _tts.awaitSpeakCompletion(true);
-    await _tts.awaitSynthCompletion(true);
+    // await _tts.awaitSynthCompletion(true);
   }
 
   Future<void> speak(String text) async {
