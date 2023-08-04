@@ -25,7 +25,7 @@ class PresetScreen extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('囚人番号朝礼点呼'),
+        title: const Text('点呼'),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -46,7 +46,8 @@ class PresetScreen extends HookConsumerWidget {
                     ),
               );
               try {
-                await TtsService.shared.speak('朝礼を始めます！');
+                await TtsService.shared.speak('点呼します！');
+                await TtsService.shared.speak('左から');
                 for (final entry in callCourts
                     .asMap()
                     .entries) {
@@ -74,6 +75,7 @@ class PresetScreen extends HookConsumerWidget {
               );
 
               await TtsService.shared.speak('きけーい！');
+              await TtsService.shared.speak('左から');
               for (final entry in lastCalledCourt.asMap().entries) {
                 await TtsService.shared.callCourt(entry.key + 1, entry.value);
               }
@@ -132,12 +134,12 @@ class GuideCourt extends StatelessWidget {
       children: [
         Gap(7),
         Text('パターン'),
-        Gap(50),
-        Text('左翼'),
-        Gap(50),
+        Gap(60),
+        Text('左'),
+        Gap(60),
         Text('ねっと'),
-        Gap(50),
-        Text('右翼'),
+        Gap(60),
+        Text('右'),
       ],
     );
   }
